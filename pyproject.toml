@@ -21,8 +21,5 @@ dependencies = [
 homepage = "https://github.com/mike-brady/flask-apispec-tools"
 repository = "https://github.com/mike-brady/flask-apispec-tools"
 
-[tool.setuptools.packages.find]
-where = ["flask_apispec_tools"]
-
 [tool.setuptools.package-data]
 "*" = ["*.html"]
