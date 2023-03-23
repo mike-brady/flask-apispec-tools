@@ -9,7 +9,7 @@ pip install flask-apispec-tools
 ```
 
 ## Configuration
-flask_apispec_tools requires the following inside the Flask app config.
+flask-apispec-tools requires the following inside the Flask app config.
 ```
 [FLASK_APISPEC_TOOLS]
 version =
@@ -27,7 +27,7 @@ docs_type =
 | docs_type   | The format you want your docs created as. Can be either "json" or "yaml". |
 
 ### Setting Config Values
-There are multiple ways to add the config items to the Flask app. See [Flask Configuration Handling](https://flask.palletsprojects.com/en/2.2.x/config/). While it is recommended to use separate config files or environment variables, flask_apispec_tools allows you to pass configuration values to the `init()` function. See [Configuring flask_apispec_tools with init()](#configuring-flask_apispec_tools-with-init).
+There are multiple ways to add the config items to the Flask app. See [Flask Configuration Handling](https://flask.palletsprojects.com/en/2.2.x/config/). While it is recommended to use separate config files or environment variables, flask-apispec-tools allows you to pass configuration values to the `init()` function. See [Configuring flask-apispec-tools with init()](#configuring-flask-apispec-tools-with-init).
 
 ### Referencing Other Config Options
 Config values can be references to other config options using the format `${section:option}`.
@@ -65,8 +65,8 @@ flask_apispec_tools.init(
     plugins=[MarshmallowPlugin(), MyCustomPlugin()]
 )
 ```
-### Configuring flask_apispec_tools with init()
-flask_apispec_tools can be configured by passing a dictionary of config values to `init()`. This will override any existing configuration values.
+### Configuring flask-apispec-tools with init()
+flask-apispec-tools can be configured by passing a dictionary of config values to `init()`. This will override any existing configuration values.
 ```
 flask_apispec_tools.init(
     app,
