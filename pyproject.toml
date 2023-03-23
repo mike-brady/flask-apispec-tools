@@ -3,13 +3,23 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "Flask-apispec-tools"
-version = "0.1.0"
+name = "flask-apispec-tools"
+version = "0.1.1"
+description = "A set of tools to aid in adding APISpec to Flask projects."
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Mike Brady"}
+]
 dependencies = [
     'Flask; python_version>="2.2.3"',
     'apispec; python_version>="6.3.0"',
     'apispec-webframeworks; python_version>="0.5.2"'
 ]
+
+[project.urls]
+homepage = "https://github.com/mike-brady/flask-apispec-tools"
+repository = "https://github.com/mike-brady/flask-apispec-tools"
 
 [tool.setuptools.packages.find]
 where = ["flask_apispec_tools"]
