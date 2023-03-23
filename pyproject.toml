@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Flask-apispec-tools"
+version = "0.1.0"
+dependencies = [
+    'Flask; python_version>="2.2.3"',
+    'apispec; python_version>="6.3.0"',
+    'apispec-webframeworks; python_version>="0.5.2"'
+]
+
+[tool.setuptools.packages.find]
+where = ["flask_apispec_tools"]
+
+[tool.setuptools.package-data]
+"*" = ["*.html"]
