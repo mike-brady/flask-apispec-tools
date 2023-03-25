@@ -92,6 +92,24 @@ class MyEndpoint(MethodView):
         ...
 ```
 
+## Validating Your API
+flask-apispec-tools provides a function that you can register with a [Flask Test Client](https://flask.palletsprojects.com/en/2.2.x/testing/#sending-requests-with-the-test-client) to run [after each request](https://flask.palletsprojects.com/en/2.2.x/api/#flask.Blueprint.after_request) sent during tests. The validator inspects both the [Request](https://flask.palletsprojects.com/en/2.2.x/api/?#flask.Request) and [Response](https://flask.palletsprojects.com/en/2.2.x/api/?#flask.Response) objects and compares them to the API specification. If the validation fails an [APISpecError](https://apispec.readthedocs.io/en/latest/api_core.html#apispec.exceptions.APISpecError) is raised, and the test will fail.
+
+### Setup
+ ```
+ from flask_apispec_tools.testing import response_validator
+
+	...
+	app.after_request(response_validator())
+	...
+ ```
+### Example Failed Test
+```
+==================================== short test summary info ====================================
+FAILED tests.py::test_docs - apispec.exceptions.APISpecError: GET /docs -> 200: text/html missing
+================================== 1 failed, 41 passed in 0.49s =================================
+```
+
 ## Built-in Endpoints
 | endpoint   | description                   | query parameters                                          |
 |------------|-------------------------------|-----------------------------------------------------------|

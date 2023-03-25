@@ -25,11 +25,12 @@ def test_docs(client, params, status_code):
     response = client.get('/docs', query_string=params)
 
     assert response.status_code == status_code
-    assert response.mimetype == 'text/html'
     if status_code == 200:
+        assert response.mimetype == 'text/html'
         assert '<!-- such a simple thing -->' in response.text
     else:
-        assert '<!-- such a simple thing -->' not in response.text
+        assert response.mimetype == 'text/plain'
+        assert response.text == ''
 
 
 @pytest.mark.parametrize('params, status_code', [
@@ -58,7 +59,8 @@ def test_docs_json(client, params, status_code):
         assert response.mimetype == 'application/json'
         assert response.json == {'these': 'are', 'some': 'docs'}
     else:
-        assert response.mimetype == 'text/html'
+        assert response.mimetype == 'text/plain'
+        assert response.text == ''
 
 
 def test_version(client):

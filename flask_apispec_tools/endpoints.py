@@ -11,7 +11,7 @@ from flask_apispec_tools.tools import config_value, get_docs_filepath
 
 class BaseDocs(MethodView):
     def raise_not_found(self, version):
-        raise NotFound(f'Docs not found for version {version}')
+        raise NotFound(f'API Docs not found for {config_value("title")} {version}')
 
 
 class Docs(BaseDocs):
@@ -27,6 +27,7 @@ class Docs(BaseDocs):
             200:
                 content:
                     text/html: {}
+            404:
         """
         version = request.args.get('version', config_value('version'))
 
@@ -67,6 +68,7 @@ class DocsJSON(BaseDocs):
                             paths:
                                 /:
                                     get: {}
+            404:
         """
         version = request.args.get('version', config_value('version'))
 
