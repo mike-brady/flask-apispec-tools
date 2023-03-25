@@ -7,11 +7,10 @@ from flask.cli import with_appcontext
 
 from flask_apispec_tools.tools import get_api_spec, get_docs_filename, get_docs_filepath, config_value
 
-
 @click.command('generate-api-docs')
 @click.option('-a', '--all', 'get_everything', flag_value=True, help="Include endpoints marked 'Exclude From Spec'.")
 @with_appcontext
-def generate_api_docs(get_everything) -> NoReturn:
+def generate_api_docs(get_everything: bool) -> NoReturn:
 
     spec, version = get_api_spec(
         plugins=config_value('plugins'),

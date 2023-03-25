@@ -11,16 +11,6 @@ TEST_MODULE = 'flask_apispec_tools.tools'
 docs_filename = 'CLI_Test_1.2.3.json'
 
 
-@pytest.fixture(scope='function')
-def remove_generated_docs(runner):
-    yield
-
-    docs_dir = runner.app.config['FLASK_APISPEC_TOOLS']['docs_dir']
-    if os.path.isfile(os.path.join(docs_dir, 'CLI_Test_1.2.3.json')):
-        os.remove(os.path.join(docs_dir, docs_filename))
-
-
-@pytest.mark.usefixtures('remove_generated_docs')
 @pytest.mark.parametrize('args, inputs, make_existing_file, succeeds', [
     pytest.param(
         [], [],
