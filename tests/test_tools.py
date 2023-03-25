@@ -58,20 +58,17 @@ def test_get_api_spec(monkeypatch, client, use_client, kwargs):
     )
 
     mock_path = mock_apispec_class.return_value.path
+    endpoint_calls = [
+        call(view=client.application.view_functions['flask_apispec_tools_version']),
+        call(view=client.application.view_functions['test_endpoint'])
+    ]
     if kwargs.get('get_everything', False):
-        mock_path.assert_has_calls(
-            [
-                call(view=client.application.view_functions['flask_apispec_tools_version']),
-                call(view=client.application.view_functions['flask_apispec_tools_docs']),
-                call(view=client.application.view_functions['flask_apispec_tools_docs_json'])
-            ],
-            any_order=True
-        )
-        assert mock_path.call_count == 3
-    else:
-        mock_path.assert_called_once_with(
-            view=client.application.view_functions['flask_apispec_tools_version']
-        )
+        endpoint_calls.extend([
+            call(view=client.application.view_functions['flask_apispec_tools_docs']),
+            call(view=client.application.view_functions['flask_apispec_tools_docs_json'])
+        ])
+    mock_path.assert_has_calls(endpoint_calls, any_order=True)
+    assert mock_path.call_count == len(endpoint_calls)
 
 
 @pytest.mark.parametrize('option, mock_parse_return, use_client, expected', [
