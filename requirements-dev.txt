@@ -1,4 +1,1 @@
-apispec
-apispec-webframeworks
-Flask
 pytest

@@ -1,5 +1,6 @@
 venv
 dist
+.tox
 *.egg-info
 *.pyc
 *.pytest_cache
