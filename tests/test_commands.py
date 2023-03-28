@@ -82,7 +82,7 @@ def test_generate_api_docs(runner, args, inputs, make_existing_file, succeeds):
     success_msg = f'{docs_filename} created.'
     aborted_msg = 'aborted'
     if make_existing_file:
-        expected += f'ERROR: {docs_filename} already exists.{os.linesep}'
+        expected += f'ERROR: {docs_filename} already exists.\n'
         user_input = None
         i = 0
         while user_input not in {'y', 'n'}:
@@ -109,7 +109,7 @@ def test_generate_api_docs(runner, args, inputs, make_existing_file, succeeds):
         expected += '  -a, --all  Include endpoints marked \'Exclude From Spec\'.\n'
         expected += '  --help     Show this message and exit.'
 
-    expected += os.linesep
+    expected += '\n'
 
     assert result.output == expected
 
