@@ -1,4 +1,4 @@
-from typing import NoReturn, Union
+from typing import NoReturn, Union, List, Dict
 
 from apispec import BasePlugin
 from flask import Flask
@@ -14,8 +14,8 @@ def init(
         docs_endpoint: Union[str, bool] = '/docs',
         docs_json_endpoint: Union[str, bool] = '/docs/json',
         version_endpoint: Union[str, bool] = '/version',
-        plugins: list[BasePlugin] = None,
-        config_values: dict[str, str] = None
+        plugins: List[BasePlugin] = None,
+        config_values: Dict[str, str] = None
 ) -> NoReturn:
     """
     Initialize flask-apispec-tools.
