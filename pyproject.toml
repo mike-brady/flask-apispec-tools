@@ -15,7 +15,8 @@ authors = [
 dependencies = [
     'Flask; python_version>="2.2.3"',
     'apispec; python_version>="6.3.0"',
-    'apispec-webframeworks; python_version>="0.5.2"'
+    'apispec-webframeworks; python_version>="0.5.2"',
+    'importlib-resources'
 ]
 
 [project.urls]
