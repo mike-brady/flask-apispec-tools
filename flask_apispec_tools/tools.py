@@ -1,5 +1,6 @@
 import os
 import re
+from typing import Union, List, Tuple
 
 from apispec import APISpec, BasePlugin
 from apispec_webframeworks.flask import FlaskPlugin
@@ -11,10 +12,10 @@ CONFIG_SECTION = 'FLASK_APISPEC_TOOLS'
 def get_api_spec(
         app: Flask = None,
         *,
-        plugins: list[BasePlugin] = None,
+        plugins: List[BasePlugin] = None,
         get_everything: bool = False,
         openapi_version: str = '3.0.3'
-) -> tuple[APISpec, str]:
+) -> Tuple[APISpec, str]:
     """
 
     Args:
@@ -55,7 +56,7 @@ def get_api_spec(
     return spec, version
 
 
-def config_value(option: str, *, config: Config = None) -> str | None:
+def config_value(option: str, *, config: Config = None) -> Union[str, None]:
     """
     Get the value of an option from the config.
 
@@ -82,7 +83,7 @@ def config_value(option: str, *, config: Config = None) -> str | None:
     return value
 
 
-def _parse_reference(value: str) -> tuple[str, str] | bool:
+def _parse_reference(value: str) -> Union[Tuple[str, str], bool]:
     """
     Parses a string that may contain a reference to another config value.
 

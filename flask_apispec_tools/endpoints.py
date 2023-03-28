@@ -1,6 +1,9 @@
 import json
 import os
-from importlib.resources import files
+try:
+    from importlib.resources import files
+except ImportError:
+    from importlib_resources import files
 
 from flask import render_template_string, jsonify, current_app, request
 from flask.views import MethodView
