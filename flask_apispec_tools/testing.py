@@ -10,15 +10,12 @@ def response_validator() -> typing.Callable[[Response], Response]:
     def validate_response(response: Response) -> Response:
         # Validation Check 1
         # If there is no endpoint for the requested path, there is nothing to validate
+        # Validation Check 2
+        # If a request was made with an unallowed method, there is nothing to validate
         if request.endpoint is None:
             return response
 
         status_code = str(response.status_code)
-
-        # Validation Check 2
-        # If a request was made with an unallowed method, there is nothing to validate
-        if status_code == '405':
-            return response
 
         if '_test_spec' not in current_app.config['FLASK_APISPEC_TOOLS']:
             spec, _ = get_api_spec(current_app, get_everything=True)

@@ -49,7 +49,7 @@ def mock_app():
     return app
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='module')
 def client():
     app = mock_app()
 
@@ -58,7 +58,7 @@ def client():
             yield client
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='module')
 def runner():
     app = mock_app()
 
@@ -102,7 +102,4 @@ class TestEndpoint(MethodView):
         return self.make_response()
 
     def delete(self):
-        return self.make_response()
-
-    def put(self):
         return self.make_response()

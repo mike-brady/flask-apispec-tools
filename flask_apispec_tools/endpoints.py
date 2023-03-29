@@ -1,12 +1,9 @@
 import json
 import os
-try:
-    from importlib.resources import files
-except ImportError:
-    from importlib_resources import files
 
 from flask import render_template_string, jsonify, current_app, request
 from flask.views import MethodView
+from importlib_resources import files
 from werkzeug.exceptions import NotFound
 
 from flask_apispec_tools.tools import config_value, get_docs_filepath

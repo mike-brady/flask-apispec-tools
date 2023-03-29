@@ -1,6 +1,8 @@
 venv
 dist
 .tox
+.coverage
+htmlcov
 *.egg-info
 *.pyc
 *.pytest_cache
