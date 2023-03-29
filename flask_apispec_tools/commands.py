@@ -7,6 +7,7 @@ from flask.cli import with_appcontext
 
 from flask_apispec_tools.tools import get_api_spec, get_docs_filename, get_docs_filepath, config_value
 
+
 @click.command('generate-api-docs')
 @click.option('-a', '--all', 'get_everything', flag_value=True, help="Include endpoints marked 'Exclude From Spec'.")
 @with_appcontext
@@ -25,7 +26,7 @@ def generate_api_docs(get_everything: bool) -> NoReturn:
 
         docs_type = config_value('docs_type')
         if docs_type not in ('json', 'yaml'):
-            sys.exit("invalid config. docs_type must be either 'json' or 'yaml'")
+            sys.exit("Invalid config. docs_type must be either 'json' or 'yaml'")
 
         with open(filepath, mode) as file:
             file.write(json.dumps(spec.to_dict()))
