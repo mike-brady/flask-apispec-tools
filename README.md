@@ -119,38 +119,38 @@ FAILED tests.py::test_docs - apispec.exceptions.APISpecError: GET /docs -> 200: 
 | /version   | Get the API version.          |                                                           |
 
 ## Additional Functions
-These functions are used internally, but you may find them useful as well.  
+These functions are used internally, but you may find them useful as well.
 ### `flask_apispec_tools.tools`
 #### config_values(option: str, \*, config: Config = None) -> str | None:
 ```
-Get the value of an option from the config.  
+Get the value of an option from the config.
 
-Args:  
-	option: The option to get the value for. 
-	config: Optional. Default: flask.current_app.config.  
-Returns:  
-	str: The config value. 
+Args:
+	option: The option to get the value for.
+	config: Optional. Default: flask.current_app.config.
+Returns:
+	str: The config value.
 	None: The option was not found.
 ```
 
 #### get_docs_filename(version: str = None, \*, config: Config = None) -> str:
 ```
-Get the name of a docs file for a specific version.  
+Get the name of a docs file for a specific version.
 
-Args:  
-	version: Optional. Default: The version set in the config. 
-	config: Optional. Default: flask.current_app.config.  
-Returns:  
+Args:
+	version: Optional. Default: The version set in the config.
+	config: Optional. Default: flask.current_app.config.
+Returns:
 	 The docs filename.
 ```
 
 #### get_docs_filepath(version: str = None, \*, config: Config = None) -> str:
-```  
-Get the filepath of a docs file for a specific version.  
-  
-Args:  
-	version: Optional. Default: The version set in the config. 
-	config: Optional. Default: flask.current_app.config.  
-Returns:  
+```
+Get the filepath of a docs file for a specific version.
+
+Args:
+	version: Optional. Default: The version set in the config.
+	config: Optional. Default: flask.current_app.config.
+Returns:
 	The docs filepath.
  ```

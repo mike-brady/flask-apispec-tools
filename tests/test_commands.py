@@ -139,7 +139,7 @@ def test_generate_api_docs(runner, arg, inputs, make_existing_file, config, succ
 
         if succeeds:
             assert contents.get('info') == {'description': 'Some description.', 'title': 'CLI Test', 'version': '1.2.3'}
-            assert contents.get('openapi') == "3.0.3"
+            assert contents.get('openapi') == '3.0.3'
             paths = contents.get('paths', {})
             assert '/version' in paths
             if arg in ('-a',  '--all'):
